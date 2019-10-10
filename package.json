@@ -1,0 +1,30 @@
+{
+  "name": "mmm-calendar_notifications",
+  "version": "1.0.0",
+  "description": "A magic mirror module to Play sound notification on upcoming calendar events",
+  "main": "MMM-CalendarNotifications.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashatgit/MMM-CalendarNotifications.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yashatgit/MMM-CalendarNotifications/issues"
+  },
+  "homepage": "https://github.com/yashatgit/MMM-CalendarNotifications#readme",
+  "keywords": [
+    "magic-mirror",
+    "MagicMirror2",
+    "calendar",
+    "magic-mirror-calendar",
+    "magic-mirror-calendar-notifications"
+  ],
+  "author": "Yash Soni",
+  "license": "ISC",
+  "dependencies": {
+    "aplay": "^1.2.0",
+    "say": "^0.16.0"
+  }
+}
