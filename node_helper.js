@@ -6,7 +6,7 @@ const _ = require('lodash');
 
 //https://github.com/jc21/MMM-Sounds/blob/master/node_helper.js
 
-const soundfilePath = __dirname + '/sounds/notification.mp3';
+const soundfilePath = __dirname + '/sounds/notification.wav';
 
 let config = null;
 const eventsInMemoryCache = {};
@@ -61,8 +61,8 @@ module.exports = NodeHelper.create({
       }
     }
     if (notification === 'MMM_CALENDAR_NOTIFICATIONS' && config) {
-      registerEventNotifications(sampleEvents);
-      //registerEventNotifications(payload);
+      //registerEventNotifications(sampleEvents);
+      registerEventNotifications(payload);
     }
   },
 });

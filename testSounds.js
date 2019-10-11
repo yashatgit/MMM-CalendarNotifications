@@ -1,9 +1,11 @@
 const say = require('say');
-const Sound = require('aplay');
-const soundfilePath = __dirname + '/sounds/notification.mp3';
+const Player = require('aplay');
+const soundfilePath = __dirname + '/sounds/notification.wav';
 
 const playSound = text => {
-  new Sound().play(soundfilePath);
+  //path.normalize(soundfilePath)
+  //new Player('./sounds/notification.mp3').play();
+  new Player().play(soundfilePath);
   setTimeout(() => {
     say.speak(text);
   }, 1500);

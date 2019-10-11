@@ -49,3 +49,8 @@ Example of an entry in `config.js` which displays 2 tables as shown in Screensho
   },
 },
 ```
+
+## Setup
+
+- For the Text-to-Speech to work correctly please install these packages `sudo apt-get install festival festvox-kallpc16k`. [Link](https://github.com/Marak/say.js/issues/41).
+- Only `.wav` format is supported for notifications.
