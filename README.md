@@ -44,7 +44,7 @@ Example of an entry in `config.js` which displays 2 tables as shown in Screensho
   module: 'MMM-CalendarNotifications',
   position: 'top_right',
   config: {
-	notificationLeadTime: 5 * 60 * 1000, //5mins in millis
+	  notificationLeadTime: 5 * 60 * 1000, //5mins in millis
     announcementText: 'Upcoming event',
   },
 },

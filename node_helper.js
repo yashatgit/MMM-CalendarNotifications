@@ -9,35 +9,20 @@ const _ = require('lodash');
 const soundfilePath = __dirname + '/sounds/notification.mp3';
 
 let config = null;
+const eventsInMemoryCache = {};
 
-const events = [
+const sampleEvents = [
   {
-    title: 'Next day Meal prep',
+    title: 'First Event',
     startDate: +new Date(
-      'Thu Oct 10 2019 22:55:45 GMT+0530 (India Standard Time)',
+      'Fri Oct 11 2019 08:37:00 GMT+0530 (India Standard Time)',
     ),
-    endDate: '1570725000000',
-    fullDayEvent: false,
-    firstYear: 2019,
-    location: false,
-    geo: false,
-    description: false,
-    symbol: 'calendar-check',
-    calendarName: '',
-    color: '#fff',
   },
   {
-    title: 'My custom---2',
-    startDate: '1570811100000',
-    endDate: '1570811400000',
-    fullDayEvent: false,
-    firstYear: 2019,
-    location: false,
-    geo: false,
-    description: false,
-    symbol: 'calendar-check',
-    calendarName: '',
-    color: '#fff',
+    title: 'Second Event',
+    startDate: +new Date(
+      'Fri Oct 11 2019 08:37:30 GMT+0530 (India Standard Time)',
+    ),
   },
 ];
 
@@ -58,10 +43,12 @@ const registerEventNotification = (eventStartingIn, event) => {
 const registerEventNotifications = events => {
   const currentTimeInMillis = +new Date();
   _.forEach(events, event => {
+    const eventTimeInMillis = parseInt(event.startDate);
     const pendingMillisForEvent =
-      event.startDate - currentTimeInMillis - config.notificationLeadTime;
-    if (pendingMillisForEvent > 0) {
+      eventTimeInMillis - currentTimeInMillis - config.notificationLeadTime;
+    if (pendingMillisForEvent > 0 && !eventsInMemoryCache[eventTimeInMillis]) {
       registerEventNotification(pendingMillisForEvent, event);
+      eventsInMemoryCache[eventTimeInMillis] = true; //to prevent registering event for same time
     }
   });
 };
@@ -69,13 +56,13 @@ const registerEventNotifications = events => {
 module.exports = NodeHelper.create({
   socketNotificationReceived: (notification, payload) => {
     if (notification === 'CONFIG') {
-      console.log({ config });
       if (!config) {
         config = payload;
       }
     }
     if (notification === 'MMM_CALENDAR_NOTIFICATIONS' && config) {
-      registerEventNotifications(events);
+      registerEventNotifications(sampleEvents);
+      //registerEventNotifications(payload);
     }
   },
 });

@@ -17,7 +17,7 @@ Module.register('MMM-CalendarNotifications', {
   },
   getDom: function() {
     const wrapper = document.createElement('div');
-    wrapper.innerHTML = `Hello`;
+    wrapper.innerHTML = ``;
     return wrapper;
   },
 });
