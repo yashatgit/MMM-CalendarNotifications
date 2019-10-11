@@ -1,0 +1,15 @@
+# Various Node ignoramuses.
+node_modules
+jspm_modules
+.npm
+.node_repl_history
+package-lock.json
+
+# Visual Studio Code ignoramuses.
+.vscode/
+
+# IDE Code ignoramuses.
+.idea/
+
+# Various OSX ignoramuses.
+.DS_Store
