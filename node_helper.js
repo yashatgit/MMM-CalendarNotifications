@@ -35,8 +35,16 @@ const playSound = text => {
 
 const registerEventNotification = (eventStartingIn, event) => {
   console.log(`notifying in ${eventStartingIn} millis`);
+
+  let announcementMessage = config.announcementText;
+  if (Array.isArray(config.announcementText)) {
+    announcementMessage =
+      config.announcementText[
+        Math.floor(Math.random() * config.announcementText.length)
+      ];
+  }
   setTimeout(() => {
-    playSound(`${config.announcementText}. ${event.title}`);
+    playSound(`${announcementMessage}. ${event.title}`);
   }, eventStartingIn);
 };
 

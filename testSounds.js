@@ -8,7 +8,17 @@ const playSound = text => {
   new Player().play(soundfilePath);
   setTimeout(() => {
     say.speak(text);
-  }, 1500);
+  }, 800);
 };
 
-playSound('Guys! there is an event coming up');
+const announcements = [
+  'Guys! there is an event coming up',
+  'O Captain my Captain, there is an event coming up',
+  'Sir, be ready for an upcoming event',
+  'Gentle reminder for',
+];
+const randomAnnouncement =
+  announcements[Math.floor(Math.random() * announcements.length)];
+
+playSound(randomAnnouncement);
+//playSound('Guys! there is an event coming up');
